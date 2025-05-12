@@ -1,3 +1,5 @@
+'use client'
+
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -13,9 +15,11 @@ import { useState } from 'react'
 export function UserCard({
   user,
   onDelete,
+  onEdit,
 }: {
   user: User
   onDelete: (user: User) => void
+  onEdit: () => void
 }) {
   const [open, setOpen] = useState(false)
 
@@ -62,7 +66,9 @@ export function UserCard({
             </button>
           </PopoverTrigger>
           <PopoverContent className="w-fit flex flex-col gap-2 px-6">
-            <Button variant="secondary">Editar</Button>
+            <Button variant="secondary" onClick={onEdit}>
+              Editar
+            </Button>
             <Button variant="destructive" onClick={handleDelete}>
               Excluir
             </Button>

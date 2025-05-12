@@ -19,6 +19,7 @@ import {
 import { useState } from 'react'
 import { getPaginationRange } from '@/lib/functions/getPaginationRange'
 import { User } from '@/lib/types/User'
+import { EditUserDialog } from './UserCard/EditUserDialog'
 
 export function UserList({
   users,
@@ -30,8 +31,16 @@ export function UserList({
   const [currentPage, setCurrentPage] = useState(1)
   const ITEMS_PER_PAGE = 6
 
+  const [selectedUser, setSelectedUser] = useState<User | null>(null)
+
   const deleteUser = (userToDelete: User) => {
     setUsers((prevUsers) => prevUsers.filter((user) => user !== userToDelete))
+  }
+
+  const handleSaveUser = (updatedUser: User) => {
+    setUsers((prevUsers) =>
+      prevUsers.map((user) => (user === selectedUser ? updatedUser : user)),
+    )
   }
 
   const paginatedUsers = users.slice(
@@ -45,7 +54,12 @@ export function UserList({
     <div className="flex flex-col justify-between gap-5">
       <div className="space-y-4 overflow-y-scroll max-h-[45vh]">
         {paginatedUsers.map((user, index) => (
-          <UserCard user={user} key={index} onDelete={deleteUser} />
+          <UserCard
+            key={index}
+            user={user}
+            onDelete={deleteUser}
+            onEdit={() => setSelectedUser(user)}
+          />
         ))}
       </div>
 
@@ -100,6 +114,17 @@ export function UserList({
           </Select>
         </div>
       </Pagination>
+
+      {selectedUser && (
+        <EditUserDialog
+          open={!!selectedUser}
+          user={selectedUser}
+          onOpenChange={(open) => {
+            if (!open) setSelectedUser(null)
+          }}
+          onSave={handleSaveUser}
+        />
+      )}
     </div>
   )
 }

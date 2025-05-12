@@ -66,38 +66,6 @@ export function EditUserDialog({ open, onOpenChange, user, onSave }: Props) {
             />
           </div>
 
-          <div>
-            <Label htmlFor="gender">Gênero</Label>
-            <Input
-              id="gender"
-              name="gender"
-              value={formData.gender}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div>
-            <Label htmlFor="date">Data</Label>
-            <Input
-              id="date"
-              name="date"
-              type="date"
-              value={formData.date}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div>
-            <Label htmlFor="time">Horário</Label>
-            <Input
-              id="time"
-              name="time"
-              type="time"
-              value={formData.time}
-              onChange={handleChange}
-            />
-          </div>
-
           <div className="flex items-center justify-between">
             <Label htmlFor="status">Status</Label>
             <Switch
