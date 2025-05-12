@@ -5,7 +5,7 @@
     "gender": "Homem",
     "date": "22/03/2025 - 10:21am",
     "time": "38m22s",
-    "status": "Ativo"
+    "status": "active"
   },
   {
     "name": "Fernanda Oliveira Costa",
@@ -13,7 +13,7 @@
     "gender": "Mulher",
     "date": "22/03/2025 - 10:21am",
     "time": "38m22s",
-    "status": "Inativo"
+    "status": "inactive"
   },
   {
     "name": "Ricardo Almeida Santos",
@@ -21,7 +21,7 @@
     "gender": "Homem",
     "date": "22/03/2025 - 10:21am",
     "time": "38m22s",
-    "status": "Ativo"
+    "status": "active"
   },
   {
     "name": "Amanda Pereira Rocha",
@@ -29,6 +29,6 @@
     "gender": "Mulher",
     "date": "22/03/2025 - 10:21am",
     "time": "38m22s",
-    "status": "Inativo"
+    "status": "inactive"
   }
 ]

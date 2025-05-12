@@ -55,9 +55,9 @@ export function UserCard({
       <div className="flex items-center gap-3">
         <Badge
           className={user.status === 'active' ? 'font-bold' : 'font-semibold'}
-          variant={user.status === 'inactive' ? 'secondary' : 'outline'}
+          variant={user.status === 'active' ? 'secondary' : 'outline'}
         >
-          {user.status}
+          {user.status === 'active' ? 'Ativo' : 'Inativo'}
         </Badge>
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
