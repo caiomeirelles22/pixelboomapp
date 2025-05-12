@@ -9,9 +9,9 @@ import {
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { useEffect, useState } from 'react'
 import { User } from '@/lib/types/User'
+import { InputWithLabel } from '@/components/ui/InputWithLabel'
 
 type Props = {
   open: boolean
@@ -45,26 +45,27 @@ export function EditUserDialog({ open, onOpenChange, user, onSave }: Props) {
         </DialogHeader>
 
         <div className="flex flex-col gap-4 mt-4">
-          <div>
-            <Label htmlFor="name">Nome</Label>
-            <Input
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-            />
-          </div>
+          <InputWithLabel
+            label="Nome"
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Digite o nome"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
 
-          <div>
-            <Label htmlFor="age">Idade</Label>
-            <Input
-              id="age"
-              name="age"
-              type="number"
-              value={formData.age}
-              onChange={handleChange}
-            />
-          </div>
+          <InputWithLabel
+            label="Idade"
+            id="age"
+            name="age"
+            type="number"
+            placeholder="Digite a idade"
+            value={formData.age}
+            onChange={handleChange}
+            required
+          />
 
           <div className="flex items-center justify-between">
             <Label htmlFor="status">Status</Label>
