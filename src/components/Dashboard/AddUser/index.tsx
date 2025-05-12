@@ -55,8 +55,18 @@ export function AddUser({ onAddUser }: { onAddUser: (user: User) => void }) {
       date: '10/05/2025 - 14:00',
       time: '38m22s',
     })
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      cpf: '',
+      rg: '',
+      emailTwo: '',
+      whatsapp: false,
+      status: 'active',
+    })
     toast(
-      <div className="flex justify-between items-center w-[364px] py-6 pr-8 pl-6">
+      <div className="flex justify-between items-center w-[364px] py-6 pr-8 pl-6 z-50">
         <span>Usuário adicionado com sucesso!</span>
         <Button
           variant={'outline'}
@@ -67,7 +77,7 @@ export function AddUser({ onAddUser }: { onAddUser: (user: User) => void }) {
         </Button>
       </div>,
       {
-        duration: 10000,
+        duration: 3000,
         className: 'border border-primary rounded-md px-4 py-2',
       },
     )
